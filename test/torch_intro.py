@@ -1,6 +1,7 @@
 # John Eargle (mailto: jeargle at gmail.com)
 # torch_intro
 
+import numpy
 import torch
 
 
@@ -113,6 +114,27 @@ def ch2():
     print('X:')
     print(X)
     print(f'id(X) == before: {id(X) == before}')
+
+    # Conversion to other python objects
+    # A = X.numpy()
+    A = X.numpy()
+    B = torch.from_numpy(A)
+    print('A:')
+    print(A)
+    print('B:')
+    print(B)
+    print('type(A), type(B):')
+    print(type(A), type(B))
+    a = torch.tensor([3.5])
+    a, a.item(), float(a), int(a)
+    print('a:')
+    print(a)
+    print('a.item():')
+    print(a.item())
+    print('float(a):')
+    print(float(a))
+    print('int(a):')
+    print(int(a))
 
 
 if __name__=='__main__':
