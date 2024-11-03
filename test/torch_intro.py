@@ -1,7 +1,10 @@
 # John Eargle (mailto: jeargle at gmail.com)
 # torch_intro
 
+import os
+
 import numpy
+import pandas as pd
 import torch
 
 
@@ -135,6 +138,11 @@ def ch2():
     print(float(a))
     print('int(a):')
     print(int(a))
+
+    # CSV handling
+    data_file = os.path.join('data', 'house_tiny.csv')
+    data = pd.read_csv(data_file)
+    print(data)
 
 
 if __name__=='__main__':
