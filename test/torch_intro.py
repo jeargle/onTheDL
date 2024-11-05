@@ -144,6 +144,17 @@ def ch2():
     data = pd.read_csv(data_file)
     print(data)
 
+    # Data prep
+    inputs, targets = data.iloc[:, 0:2], data.iloc[:, 2]
+    #   Split categories into separate dimensions (one-hot).
+    inputs = pd.get_dummies(inputs, dummy_na=True)
+    print('inputs:')
+    print(inputs)
+
+    #   Fill NA cells with mean values.
+    inputs = inputs.fillna(inputs.mean())
+    print('inputs:')
+    print(inputs)
 
 if __name__=='__main__':
 
