@@ -170,6 +170,8 @@ def ex_2_2():
 
 
 def ch_2_3():
+    # Linear algebra
+    # Scalar
     x = torch.tensor(3.0)
     y = torch.tensor(2.0)
     # x + y, x - y, x * y, x / y, x ** y
@@ -188,6 +190,7 @@ def ch_2_3():
     print('x ** y:')
     print(x ** y)
 
+    # Vector
     x = torch.arange(3)
     print('x:')
     print(x)
@@ -197,6 +200,29 @@ def ch_2_3():
     print(len(x))
     print('x.shape:')
     print(x.shape)
+
+    # Matrix
+    A = torch.arange(6).reshape(3, 2)
+    print('A:')
+    print(A)
+    print('A.T:')
+    print(A.T)
+    A = torch.tensor([[1, 2, 3], [2, 0, 4], [3, 4, 5]])
+    print('A:')
+    print(A)
+    print('A == A.T:')
+    print(A == A.T)
+
+    # Tensor
+    B = torch.arange(24).reshape(2, 3, 4)
+    print('B:')
+    print(B)
+
+    #   Arithmetic
+
+    #   Reduction
+
+    #   Non-reduction sum
 
 
 def ch_2():
