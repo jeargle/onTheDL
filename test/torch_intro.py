@@ -8,7 +8,7 @@ import pandas as pd
 import torch
 
 
-def ch2():
+def ch_2_2():
     x = torch.arange(12, dtype=torch.float32)
     print(f'x: {x}')
     print(f'x.numel(): {x.numel()}')
@@ -156,6 +156,56 @@ def ch2():
     print('inputs:')
     print(inputs)
 
+    #   Conversion to tensors.
+    X = torch.tensor(inputs.to_numpy(dtype=float))
+    y = torch.tensor(targets.to_numpy(dtype=float))
+    print('X:')
+    print(X)
+    print('y:')
+    print(y)
+
+
+def ex_2_2():
+    pass
+
+
+def ch_2_3():
+    x = torch.tensor(3.0)
+    y = torch.tensor(2.0)
+    # x + y, x - y, x * y, x / y, x ** y
+    print('x:')
+    print(x)
+    print('y:')
+    print(y)
+    print('x + y:')
+    print(x + y)
+    print('x - y:')
+    print(x - y)
+    print('x * y:')
+    print(x * y)
+    print('x / y:')
+    print(x / y)
+    print('x ** y:')
+    print(x ** y)
+
+    x = torch.arange(3)
+    print('x:')
+    print(x)
+    print('x[2]:')
+    print(x[2])
+    print('len(x):')
+    print(len(x))
+    print('x.shape:')
+    print(x.shape)
+
+
+def ch_2():
+    ch_2_2()
+    ex_2_2()
+
+    ch_2_3()
+
+
 if __name__=='__main__':
 
     print('***************************')
@@ -166,4 +216,4 @@ if __name__=='__main__':
     # Chapter 2
     # ====================
 
-    ch2()
+    ch_2()
