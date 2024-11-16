@@ -219,6 +219,28 @@ def ch_2_3():
     print(B)
 
     #   Arithmetic
+    A = torch.arange(6, dtype=torch.float32).reshape(2, 3)
+    B = A.clone()  # Assign a copy of A to B by allocating new memory
+    print('A:')
+    print(A)
+    print('B:')
+    print(B)
+    print('A + B:')
+    print(A + B)
+    print('A * B:')
+    print(A * B)
+    a = 2
+    X = torch.arange(24).reshape(2, 3, 4)
+    print('a:')
+    print(a)
+    print('X:')
+    print(X)
+    print('a + X:')
+    print(a + X)
+    print('a * X:')
+    print(a * X)
+    print('(a * X).shape:')
+    print((a * X).shape)
 
     #   Reduction
 
