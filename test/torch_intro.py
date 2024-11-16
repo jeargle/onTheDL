@@ -243,6 +243,35 @@ def ch_2_3():
     print((a * X).shape)
 
     #   Reduction
+    x = torch.arange(3, dtype=torch.float32)
+    print('x:')
+    print(x)
+    print('x.sum():')
+    print(x.sum())
+
+    print('A:')
+    print(A)
+    print('A.shape:')
+    print(A.shape)
+    print('A.sum():')
+    print(A.sum())
+
+    print('A.sum(axis=0).shape:')
+    print(A.sum(axis=0).shape)
+    print('A.sum(axis=1).shape:')
+    print(A.sum(axis=1).shape)
+    print('A.sum(axis=[0, 1]) == A.sum():')
+    print(A.sum(axis=[0, 1]) == A.sum())
+
+    print('A.mean():')
+    print(A.mean())
+    print('A.sum() / A.numel():')
+    print(A.sum() / A.numel())
+
+    print('A.mean(axis=0):')
+    print(A.mean(axis=0))
+    print('A.sum(axis=0) / A.shape[0]:')
+    print(A.sum(axis=0) / A.shape[0])
 
     #   Non-reduction sum
 
