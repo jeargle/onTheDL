@@ -274,6 +274,29 @@ def ch_2_3():
     print(A.sum(axis=0) / A.shape[0])
 
     #   Non-reduction sum
+    sum_A = A.sum(axis=1, keepdims=True)
+    print('sum_A:')
+    print(sum_A)
+    print('sum_A.shape')
+    print(sum_A.shape)
+
+    print('A / sum_A:')
+    print(A / sum_A)
+
+    print('A.cumsum(axis=0):')
+    print(A.cumsum(axis=0))
+
+    #   Dot products
+
+    #   Matrix*vector products
+
+    #   Matrix*matrix products
+
+    #   Norms
+
+
+def ex_2_3():
+    pass
 
 
 def ch_2():
@@ -281,6 +304,7 @@ def ch_2():
     ex_2_2()
 
     ch_2_3()
+    ex_2_3()
 
 
 if __name__=='__main__':
