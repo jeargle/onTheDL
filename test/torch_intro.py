@@ -3,7 +3,7 @@
 
 import os
 
-import numpy
+import numpy as np
 import pandas as pd
 import torch
 
@@ -334,12 +334,29 @@ def ex_2_3():
     pass
 
 
+def ch_2_4():
+    # Calculus
+    # Derivatives
+    def f(x):
+        return 3 * x ** 2 - 4 * x
+
+    for h in 10.0**np.arange(-1, -6, -1):
+        print(f'h={h:.5f}, numerical limit={(f(1+h)-f(1))/h:.5f}')
+
+
+def ex_2_4():
+    pass
+
+
 def ch_2():
     ch_2_2()
     ex_2_2()
 
     ch_2_3()
     ex_2_3()
+
+    ch_2_4()
+    ex_2_4()
 
 
 if __name__=='__main__':
