@@ -319,6 +319,15 @@ def ch_2_3():
     print(A@B)
 
     #   Norms
+    u = torch.tensor([3.0, -4.0])
+    print('u:')
+    print(u)
+    print('torch.norm(u):')
+    print(torch.norm(u))
+    print('torch.abs(u).sum():')
+    print(torch.abs(u).sum())
+    print('torch.norm(torch.ones((4, 9))):')
+    print(torch.norm(torch.ones((4, 9))))
 
 
 def ex_2_3():
