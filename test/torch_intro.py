@@ -310,6 +310,13 @@ def ch_2_3():
     print(A@x)
 
     #   Matrix*matrix products
+    B = torch.ones(3, 4)
+    print('B:')
+    print(B)
+    print('torch.mm(A, B):')
+    print(torch.mm(A, B))
+    print('A@B:')
+    print(A@B)
 
     #   Norms
 
