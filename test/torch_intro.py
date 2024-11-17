@@ -299,6 +299,15 @@ def ch_2_3():
     print(torch.sum(x * y))
 
     #   Matrix*vector products
+    A.shape, x.shape, torch.mv(A, x), A@x
+    print('A.shape:')
+    print(A.shape)
+    print('x.shape:')
+    print(x.shape)
+    print('torch.mv(A, x):')
+    print(torch.mv(A, x))
+    print('A@x:')
+    print(A@x)
 
     #   Matrix*matrix products
 
