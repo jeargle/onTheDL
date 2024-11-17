@@ -287,6 +287,16 @@ def ch_2_3():
     print(A.cumsum(axis=0))
 
     #   Dot products
+    y = torch.ones(3, dtype = torch.float32)
+    print('x:')
+    print(x)
+    print('y:')
+    print(y)
+    print('torch.dot(x, y):')
+    print(torch.dot(x, y))
+
+    print('torch.sum(x * y):')
+    print(torch.sum(x * y))
 
     #   Matrix*vector products
 
