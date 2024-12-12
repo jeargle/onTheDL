@@ -3,9 +3,12 @@
 
 import os
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import torch
+
+import onTheDL.onthedl as otdl
 
 
 def ch_2_2():
@@ -343,17 +346,22 @@ def ch_2_4():
     for h in 10.0**np.arange(-1, -6, -1):
         print(f'h={h:.5f}, numerical limit={(f(1+h)-f(1))/h:.5f}')
 
+    x = np.arange(0, 3, 0.1)
+    my_plot = otdl.plot(x, [f(x), 2 * x - 3], 'x', 'f(x)', legend=['f(x)', 'Tangent line (x=1)'])
+    plt.show()
+
+
 
 def ex_2_4():
     pass
 
 
 def ch_2():
-    ch_2_2()
-    ex_2_2()
+    # ch_2_2()
+    # ex_2_2()
 
-    ch_2_3()
-    ex_2_3()
+    # ch_2_3()
+    # ex_2_3()
 
     ch_2_4()
     ex_2_4()
