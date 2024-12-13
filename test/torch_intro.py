@@ -353,18 +353,109 @@ def ch_2_4():
 
 
 def ex_2_4():
+    # 6
+    pass
+
+
+def ch_2_5():
+    # Automatic differentiation
+    x = torch.arange(4.0)
+    print('x:')
+    print(x)
+
+    # Can also create x = torch.arange(4.0, requires_grad=True)
+    x.requires_grad_(True)
+    print('x.grad:')  # The gradient is None by default
+    print(x.grad)
+
+    y = 2 * torch.dot(x, x)
+    print('y:')
+    print(y)
+
+    y.backward()
+    # x.grad
+    print('x.grad:')
+    print(x.grad)
+    print('x.grad == 4 * x:')
+    print(x.grad == 4 * x)
+
+    x.grad.zero_()  # Reset the gradient
+    y = x.sum()
+    y.backward()
+    # x.grad
+    print('x.grad:')
+    print(x.grad)
+
+    # Backard for non-scalar variables
+    x.grad.zero_()
+    y = x * x
+    y.backward(gradient=torch.ones(len(y)))  # Faster: y.sum().backward()
+    # x.grad
+    print('x.grad:')
+    print(x.grad)
+
+    # Detaching computation from the gradient calculation graph
+    x.grad.zero_()
+    y = x * x
+    u = y.detach()
+    z = u * x
+    print('y:')
+    print(y)
+    print('u:')
+    print(u)
+    print('z:')
+    print(z)
+
+    z.sum().backward()
+    print('x.grad == u:')
+    print(x.grad == u)
+
+    x.grad.zero_()
+    y.sum().backward()
+    print('x.grad == 2 * x:')
+    print(x.grad == 2 * x)
+
+    # Gradients and flow control
+    def f(a):
+        b = a * 2
+        while b.norm() < 1000:
+            b = b * 2
+
+        if b.sum() > 0:
+            c = b
+        else:
+            c = 100 * b
+
+        return c
+
+    a = torch.randn(size=(), requires_grad=True)
+    d = f(a)
+    d.backward()
+    print('a:')
+    print(a)
+    print('d:')
+    print(d)
+
+    print('a.grad == d / a:')
+    print(a.grad == d / a)
+
+
+def ex_2_5():
     pass
 
 
 def ch_2():
-    # ch_2_2()
-    # ex_2_2()
+    ch_2_2()
+    ex_2_2()
 
-    # ch_2_3()
-    # ex_2_3()
+    ch_2_3()
+    ex_2_3()
 
     ch_2_4()
     ex_2_4()
+
+    ch_2_5()
+    ex_2_5()
 
 
 if __name__=='__main__':
