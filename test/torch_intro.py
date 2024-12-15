@@ -6,7 +6,9 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import random
 import torch
+from torch.distributions.multinomial import Multinomial
 
 import onTheDL.onthedl as otdl
 
@@ -444,18 +446,62 @@ def ex_2_5():
     pass
 
 
+def ch_2_6():
+    # Random
+    num_tosses = 100
+    heads = sum([random.random() > 0.5 for _ in range(num_tosses)])
+    tails = num_tosses - heads
+    print("heads, tails: ", [heads, tails])
+
+    # Multinomial
+    fair_probs = torch.tensor([0.5, 0.5])
+    print("fair_probs:")
+    print(fair_probs)
+
+    print("Multinomial(100, fair_probs).sample():")
+    print(Multinomial(100, fair_probs).sample())
+    print("Multinomial(100, fair_probs).sample():")
+    print(Multinomial(100, fair_probs).sample())
+    print("Multinomial(100, fair_probs).sample():")
+    print(Multinomial(100, fair_probs).sample())
+
+    print("Multinomial(100, fair_probs).sample() / 100:")
+    print(Multinomial(100, fair_probs).sample() / 100)
+    print("Multinomial(100, fair_probs).sample() / 100:")
+    print(Multinomial(100, fair_probs).sample() / 100)
+    print("Multinomial(100, fair_probs).sample() / 100:")
+    print(Multinomial(100, fair_probs).sample() / 100)
+
+    counts = Multinomial(10000, fair_probs).sample()
+    print("counts / 10000:")
+    print(counts / 10000)
+    counts = Multinomial(10000, fair_probs).sample()
+    print("counts / 10000:")
+    print(counts / 10000)
+    counts = Multinomial(10000, fair_probs).sample()
+    print("counts / 10000:")
+    print(counts / 10000)
+
+
+def ex_2_6():
+    pass
+
+
 def ch_2():
-    ch_2_2()
-    ex_2_2()
+    # ch_2_2()
+    # ex_2_2()
 
-    ch_2_3()
-    ex_2_3()
+    # ch_2_3()
+    # ex_2_3()
 
-    ch_2_4()
-    ex_2_4()
+    # ch_2_4()
+    # ex_2_4()
 
-    ch_2_5()
-    ex_2_5()
+    # ch_2_5()
+    # ex_2_5()
+
+    ch_2_6()
+    ex_2_6()
 
 
 if __name__=='__main__':
