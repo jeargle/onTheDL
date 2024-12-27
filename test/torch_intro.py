@@ -482,6 +482,24 @@ def ch_2_6():
     print("counts / 10000:")
     print(counts / 10000)
 
+    counts = Multinomial(1, fair_probs).sample((10000,))
+    cum_counts = counts.cumsum(dim=0)
+    estimates = cum_counts / cum_counts.sum(dim=1, keepdims=True)
+    estimates = estimates.numpy()
+
+    # Old plot style
+    # set_figsize((4.5, 3.5))
+    # plt.plot(estimates[:, 0], label=("P(coin=heads)"))
+    # plt.plot(estimates[:, 1], label=("P(coin=tails)"))
+    # plt.axhline(y=0.5, color='black', linestyle='dashed')
+    # plt.gca().set_xlabel('Samples')
+    # plt.gca().set_ylabel('Estimated probability')
+    # plt.legend()
+
+    my_plot = otdl.plot([range(10000), range(10000)], [estimates[:, 0], estimates[:, 1]], 'Samples', 'Estimated probability', legend=['P(coin=heads)', 'P(coin=tails)'])
+    plt.axhline(y=0.5, color='black', linestyle='dashed')
+    plt.show()
+
 
 def ex_2_6():
     pass
