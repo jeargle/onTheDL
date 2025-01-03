@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import random
+import time
 import torch
 from torch.distributions.multinomial import Multinomial
 
@@ -506,6 +507,10 @@ def ex_2_6():
 
 
 def ch_2():
+    print('=================')
+    print('=== Chapter 2 ===')
+    print('=================')
+
     # ch_2_2()
     # ex_2_2()
 
@@ -522,14 +527,45 @@ def ch_2():
     ex_2_6()
 
 
+def ch_3_1():
+    n = 10000
+
+    a = torch.ones(n)
+    b = torch.ones(n)
+
+    print('Elementwise a + b:')
+    c = torch.zeros(n)
+    start = time.time()
+    for i in range(n):
+        c[i] = a[i] + b[i]
+    stop = time.time()
+    print(f'  {stop - start:.5f} sec')
+
+    print('Vectorized a + b:')
+    start = time.time()
+    d = a + b
+    stop = time.time()
+    print(f'  {stop - start:.5f} sec')
+
+
+def ex_3_1():
+    pass
+
+
+def ch_3():
+    print('=================')
+    print('=== Chapter 3 ===')
+    print('=================')
+
+    ch_3_1()
+    # ex_3_1()
+
+
 if __name__=='__main__':
 
     print('***************************')
     print('*** ONTHEDL TORCH INTRO ***')
     print('***************************')
 
-    # ====================
-    # Chapter 2
-    # ====================
-
-    ch_2()
+    # ch_2()
+    ch_3()
