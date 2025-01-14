@@ -1,6 +1,7 @@
 # John Eargle (mailto: jeargle at gmail.com)
 # torch_intro
 
+import math
 import os
 
 import matplotlib.pyplot as plt
@@ -546,6 +547,24 @@ def ch_3_1():
     d = a + b
     stop = time.time()
     print(f'  {stop - start:.5f} sec')
+
+    def normal(x, mu, sigma):
+        p = 1 / math.sqrt(2 * math.pi * sigma**2)
+        return p * np.exp(-0.5 * (x - mu)**2 / sigma**2)
+
+    # Use NumPy again for visualization
+    x = np.arange(-7, 7, 0.01)
+
+    # Mean and standard deviation pairs
+    params = [(0, 1), (0, 2), (3, 1)]
+    otdl.plot(
+        x,
+        [normal(x, mu, sigma) for mu, sigma in params],
+        xlabel='x',
+        ylabel='p(x)',
+        legend=[f'mean {mu}, std {sigma}' for mu, sigma in params]
+    )
+    plt.show()
 
 
 def ex_3_1():
